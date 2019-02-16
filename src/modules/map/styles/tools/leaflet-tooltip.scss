@@ -1,0 +1,39 @@
+// @import "~@ui/kit/src/variables";
+// @import "~@ui/kit/src/packages/typography/mixins";
+
+// .leaflet-tooltip,
+// .leaflet-draw-tooltip {
+//   @include typography(regular-small);
+
+//   background: $gray-500;
+//   background: rgba($gray-900, .5);
+//   border: 1px solid transparent;
+//   border-radius: 4px;
+//   color: $gray-100;
+//   position: absolute;
+//   white-space: nowrap;
+//   z-index: 6;
+
+//   &::before {
+//     border-top: 6px solid transparent;
+//     border-bottom: 6px solid transparent;
+//   }
+// }
+
+// .leaflet-tooltip-left {
+//   margin-right: 11px;
+
+//   &::before {
+//     border-left-color: rgba($gray-900, .5);
+//     margin-right: -13px;
+//   }
+// }
+
+// .leaflet-tooltip-right {
+//   margin-left: 11px;
+
+//   &::before {
+//     border-right-color: rgba($gray-900, .5);
+//     margin-left: -13px;
+//   }
+// }

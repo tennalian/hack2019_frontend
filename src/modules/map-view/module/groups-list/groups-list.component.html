@@ -1,0 +1,7 @@
+<div class="card">
+  <ul class="list">
+    <li *ngFor="let group of groups" (click)="onSelect(group)">
+      {{group.name}}
+    </li>
+  </ul>
+</div>
