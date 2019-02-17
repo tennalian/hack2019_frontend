@@ -2,8 +2,8 @@ import { Injectable, NgZone } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map as observableMap } from 'rxjs/operators';
 import { Subject, of, forkJoin } from 'rxjs';
-import { LayerGroup, Marker, DivIcon } from 'leaflet';
-import { cloneDeep, map, size } from 'lodash';
+import { LayerGroup, Marker, DivIcon, LatLng } from 'leaflet';
+import { cloneDeep, map, size, isEmpty } from 'lodash';
 
 import { ENDPOINTS } from 'src/api/endpoints';
 import { endpoint } from 'src/api/endpoint/endpoint.service';
@@ -12,6 +12,12 @@ import { PointModel } from '../models/points.class';
 import { CategoryResponse, CategoriesTypes } from '../models/categories.class';
 import { GroupResponse } from '../models/groups.class';
 import { MapService } from '../../map/module/map-service/map.service';
+
+const CENTER = {
+  lat: 54.717479,
+  lng: 20.510639,
+  zoom: 12
+};
 
 @Injectable()
 export class MapViewService {
@@ -98,6 +104,12 @@ export class MapViewService {
     const coords = map(this.markers, m => {
       return m.getLatLng();
     });
+
+    if (isEmpty(coords)) {
+      lmap.panTo(new LatLng(CENTER.lat, CENTER.lng));
+      lmap.setZoom(CENTER.zoom);
+      return;
+    }
     return size(coords) && lmap.fitBounds(coords as any, mapModel.boundsPaddingOptions);
   }
 }

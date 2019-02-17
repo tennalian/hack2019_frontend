@@ -75,7 +75,6 @@ export class MapViewComponent implements OnInit {
 
   hideCard() {
     this.isCardVisible = false;
-    console.log(this.isCardVisible)
     this.cdr.detectChanges();
   }
 }

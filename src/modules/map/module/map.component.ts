@@ -14,7 +14,7 @@ const activeTilesLayers = 'mapActiveTilesLayers';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
+export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private unsubscribe = new Subject();
 
@@ -26,10 +26,6 @@ export class MapComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges
     private storage: StorageService,
     private zone: NgZone
   ) { }
-
-  ngOnChanges() {
-    console.log(this.loading)
-  }
 
   ngOnInit() {
     GlobalMediator.listen('AppShell:contentSizeChanged')
