@@ -1,3 +1,5 @@
+@import './variables';
+
 * {
   box-sizing: border-box;
 }
@@ -17,7 +19,7 @@ body {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: $black;
 }
 
 [tabindex="-1"]:focus {
