@@ -4,7 +4,7 @@ import { MapViewComponent } from 'src/modules/map-view/module/map-view.component
 
 const routes: Routes = [
   {
-    path: 'map',
+    path: '',
     component: MapViewComponent,
   }, {
     path: '**',

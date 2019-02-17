@@ -4,16 +4,15 @@ import { Subject } from 'rxjs';
 
 import { MapCenter, MapZoom, MapBaseLayers } from '../../models/map-options.class';
 
-const PREFIX = `<a href="http://maps.sputnik.ru/" target="_blank">Спутник</a> |
-                &copy; Ростелеком | &copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>`;
+const PREFIX = `<a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a>`;
 
 const LAYERS = {
-  sputnik: {
-    name: 'sputnik',
-    title: '«Спутник»',
-    type: 'xyz',
-    url: 'http://tiles.maps.sputnik.ru/tiles/kmt2/{z}/{x}/{y}.png'
-  },
+  // sputnik: {
+  //   name: 'sputnik',
+  //   title: '«Спутник»',
+  //   type: 'xyz',
+  //   url: 'http://tiles.maps.sputnik.ru/tiles/kmt2/{z}/{x}/{y}.png'
+  // },
   osm: {
     name: 'osm',
     title: 'Open Street Map',
@@ -40,7 +39,7 @@ export class MapModel {
     this.layers = {
       ...this.layers,
       baselayers: {
-        sputnik: LAYERS.sputnik
+        sputnik: LAYERS.osm
       }
     };
 
