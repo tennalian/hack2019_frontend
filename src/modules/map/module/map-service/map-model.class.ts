@@ -44,9 +44,9 @@ export class MapModel {
     };
 
     this.center = {
-      lat: 56.31436833,
-      lng: 43.993575,
-      zoom: 5
+      lat: 54.717479,
+      lng: 20.510639,
+      zoom: 12
     };
 
     this.defaults = {

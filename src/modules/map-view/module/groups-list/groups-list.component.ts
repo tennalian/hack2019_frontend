@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, EventEmitter, Output, OnInit } from '@angular/core';
 
 import { Group } from '../../models/groups.class';
 
@@ -11,12 +11,18 @@ import { Group } from '../../models/groups.class';
 export class GroupsListComponent {
 
   @Input() groups: Group[] = [];
-  @Output() selectGroup: EventEmitter<string> = new EventEmitter();
+  @Output() selectGroup: EventEmitter<Group> = new EventEmitter();
 
   activeGroupeId = null;
 
+  constructor() {}
+
   onSelect(group: Group) {
     this.activeGroupeId = group.id;
-    this.selectGroup.emit(this.activeGroupeId);
+    this.selectGroup.emit(group);
+  }
+
+  isActive(group: Group) {
+    return this.activeGroupeId === group.id;
   }
 }

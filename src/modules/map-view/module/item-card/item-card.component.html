@@ -1,0 +1,19 @@
+<div class="marker-card" *ngIf="item && group">
+  <div class="marker-card__header">
+    <h2>{{item?.title}}</h2>
+    <i class="mdi mdi-close" (click)="close()"></i>
+  </div>
+  <div class="marker-card__body">
+    <div class="marker-card__body--title">
+      <span>{{group.name}}</span>
+    </div>
+    <div class="marker-card__body--img">
+      <img src="{{item?.photoUrl}}" alt="{{item?.description}}" *ngIf="item?.photoUrl">
+    </div>
+    <div class="marker-card__body--text">
+      <p *ngIf="item.latitude && item.longitude">{{item?.latitude}} {{item?.longitude}}</p>
+      <p *ngIf="!item.latitude || !item.longitude">Без координат</p>
+      <span>{{item?.description}}</span>
+    </div>
+  </div>
+</div>

@@ -17,6 +17,11 @@ export class MapViewComponent implements OnInit {
   mapId: string;
   groups: Group[] = [];
   points: PointModel[] = [];
+  isListVisible = false;
+  isCardVisible = false;
+  loading = false;
+  selectedPoint: PointModel = null;
+  selectedGroup: Group = null;
 
   private unsubscribe = new Subject();
 
@@ -35,17 +40,36 @@ export class MapViewComponent implements OnInit {
       });
     this.mapViewService.markerClick
     .pipe(takeUntil(this.unsubscribe))
-    .subscribe(data => {
-      console.log(data)
+    .subscribe((data: any) => {
+      this.selectedPoint = data.markerData;
+      this.showCard();
     })
   }
 
-  onGroupSelect(id: string) {
-    this.mapViewService.getPoints(id)
+  onGroupSelect(group: Group) {
+    this.hideCard();
+    this.selectedGroup = group;
+    this.mapViewService.getPoints(group.id)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((data: PointsResponse) => {
         this.points = data.points;
         this.mapViewService.addPointsToMap(this.points);
       });
+  }
+
+  onBtnClick() {
+    this.isListVisible = !this.isListVisible;
+    this.cdr.detectChanges();
+  }
+
+  showCard() {
+    this.isCardVisible = true;
+    this.cdr.detectChanges();
+  }
+
+  hideCard() {
+    this.isCardVisible = false;
+    console.log(this.isCardVisible)
+    this.cdr.detectChanges();
   }
 }

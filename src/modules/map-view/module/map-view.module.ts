@@ -5,6 +5,7 @@ import { MapViewComponent } from './map-view.component';
 import { MapViewService } from './map-view.service';
 import { MapModule } from '../../map/module/map.module';
 import { GroupsListComponent } from './groups-list/groups-list.component';
+import { ItemCardComponent } from './item-card/item-card.component';
 
 @NgModule({
   imports: [
@@ -15,11 +16,13 @@ import { GroupsListComponent } from './groups-list/groups-list.component';
   ],
   exports: [
     MapViewComponent,
-    GroupsListComponent
+    GroupsListComponent,
+    ItemCardComponent
   ],
   declarations: [
     MapViewComponent,
-    GroupsListComponent
+    GroupsListComponent,
+    ItemCardComponent
   ],
   providers: [
     MapViewService

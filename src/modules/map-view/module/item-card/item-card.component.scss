@@ -1,0 +1,72 @@
+@import 'src/assets/styles/variables.scss';
+
+:host {
+  .marker-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    background: $white;
+    width: $screen-atom * 32;
+  }
+
+  .marker-card__header {
+    min-height:  $screen-atom * 5;
+    padding: 0 $screen-atom * 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $red;
+
+    h2 {
+      font-size: 14px;
+      color: white;
+      width: 100%;
+      margin: 0;
+    }
+
+    .mdi {
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .marker-card__body {
+    padding: $screen-atom * 2  $screen-atom * 3;
+    height: 100%;
+    overflow: hidden;
+    overflow-y: auto;
+
+    .marker-card__body--title {
+      font-size: 14px;
+      font-weight: bold;
+      margin: 0 0 $screen-atom * 2;
+    }
+
+    .marker-card__body--img {
+      max-width: 100%;
+      background: $grey;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 0 $screen-atom;
+
+      &.empty {
+        min-height: 200px;
+      }
+    }
+
+    .marker-card__body--text {
+      font-size: 12px;
+
+      p {
+        color: $grey;
+        margin: 0 0 $screen-atom * 2;
+      }
+    }
+
+  }
+}

@@ -1,3 +1,13 @@
 
 <map class="map-container" [mapId]="mapId"></map>
-<groups-list [groups]="groups" (selectGroup)="onGroupSelect($event)"></groups-list>
+<button class="btn" (click)="onBtnClick()">
+  <i class="mdi" [ngClass]="isListVisible ? 'mdi-chevron-up' : 'mdi-chevron-down'"></i>
+  ВЫБОР КАТЕГОРИИ
+</button>
+<groups-list *ngIf="isListVisible"
+  [groups]="groups"
+  (selectGroup)="onGroupSelect($event)"></groups-list>
+<item-card  *ngIf="isCardVisible"
+           [item]="selectedPoint"
+           [group]="selectedGroup"
+           (cardClose)="hideCard()"></item-card>
