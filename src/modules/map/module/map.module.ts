@@ -6,6 +6,7 @@ import { StorageService } from 'src/core/helpers/storage/storage.service';
 
 import { MapComponent } from './map.component';
 import { MapService } from './map-service/map.service';
+import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
   imports: [
@@ -14,9 +15,11 @@ import { MapService } from './map-service/map.service';
   ],
   exports: [
     MapComponent,
+    LoaderComponent
   ],
   declarations: [
-    MapComponent
+    MapComponent,
+    LoaderComponent
   ],
   providers: [
     MapService,

@@ -35,7 +35,7 @@
       justify-content: flex-start;
       width: 100%;
       align-items: center;
-      padding: 0 $screen-atom * 2;
+      padding: $screen-atom $screen-atom * 2;
       cursor: pointer;
 
        &.active {

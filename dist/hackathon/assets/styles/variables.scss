@@ -1,7 +1,23 @@
-$green: rgb(89,215,132);
+// $green: rgb(89,215,132);
+$green: #2dc360;
 $black: rgb(36,36,36);
 $white: white;
 $orange: rgb(245,166,35);
 $grey: rgb(226, 226, 226);
+$secondary: #a5a0a0;
 $red: rgb(206, 88, 66);
 $screen-atom: 8px;
+
+
+.list--icon {
+  width: $screen-atom * 3;
+  min-width: $screen-atom * 3;
+  height: $screen-atom * 3;
+  margin-right: $screen-atom;
+  text-align: center;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

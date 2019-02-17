@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, AfterViewInit, NgZone } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, AfterViewInit, NgZone, OnChanges } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -14,17 +14,22 @@ const activeTilesLayers = 'mapActiveTilesLayers';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit, AfterViewInit, OnDestroy {
+export class MapComponent implements OnInit, AfterViewInit, OnDestroy, OnChanges {
 
   private unsubscribe = new Subject();
 
   @Input() mapId: string;
+  @Input() loading: boolean = false;
 
   constructor(
     private mapService: MapService,
     private storage: StorageService,
     private zone: NgZone
   ) { }
+
+  ngOnChanges() {
+    console.log(this.loading)
+  }
 
   ngOnInit() {
     GlobalMediator.listen('AppShell:contentSizeChanged')

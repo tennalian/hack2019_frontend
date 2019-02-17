@@ -1,10 +1,13 @@
 <div class="marker-card" *ngIf="item && group">
-  <div class="marker-card__header">
+  <div class="marker-card__header {{colorClass}}">
     <h2>{{item?.title}}</h2>
     <i class="mdi mdi-close" (click)="close()"></i>
   </div>
   <div class="marker-card__body">
     <div class="marker-card__body--title">
+      <div class="list--icon">
+        <img src="{{group.photoUrl}}" alt="" *ngIf="group?.photoUrl" >
+      </div>
       <span>{{group.name}}</span>
     </div>
     <div class="marker-card__body--img">

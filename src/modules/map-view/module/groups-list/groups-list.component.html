@@ -1,6 +1,9 @@
 <div class="card">
   <ul class="list">
     <li *ngFor="let group of groups" (click)="onSelect(group)" [ngClass]="{'active': isActive(group)}">
+      <div class="list--icon">
+        <img src="{{group.photoUrl}}" alt="" *ngIf="group?.photoUrl" >
+      </div>
       {{group.name}}
     </li>
   </ul>

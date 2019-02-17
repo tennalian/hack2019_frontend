@@ -3,8 +3,9 @@ import { Component, ChangeDetectionStrategy, OnInit, ChangeDetectorRef } from '@
 import { MapViewService } from './map-view.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { GroupResponse, Group } from '../models/groups.class';
+import { Group } from '../models/groups.class';
 import { PointsResponse, PointModel } from '../models/points.class';
+import { Category } from '../models/categories.class';
 
 @Component({
   selector: 'map-view',
@@ -17,6 +18,7 @@ export class MapViewComponent implements OnInit {
   mapId: string;
   groups: Group[] = [];
   points: PointModel[] = [];
+  categories: Category[] = [];
   isListVisible = false;
   isCardVisible = false;
   loading = false;
@@ -32,10 +34,10 @@ export class MapViewComponent implements OnInit {
 
   ngOnInit() {
     this.mapId = this.mapViewService.mapId;
-    this.mapViewService.getGroups()
+    this.mapViewService.fetchData()
       .pipe(takeUntil(this.unsubscribe))
-      .subscribe((data: GroupResponse) => {
-        this.groups = data.groups;
+      .subscribe((data:[Category[], Group[]]) => {
+        [ this.categories, this.groups ] = data;
         this.cdr.detectChanges();
       });
     this.mapViewService.markerClick
@@ -48,12 +50,16 @@ export class MapViewComponent implements OnInit {
 
   onGroupSelect(group: Group) {
     this.hideCard();
+    this.loading = true;
+    this.cdr.detectChanges();
     this.selectedGroup = group;
     this.mapViewService.getPoints(group.id)
       .pipe(takeUntil(this.unsubscribe))
       .subscribe((data: PointsResponse) => {
         this.points = data.points;
         this.mapViewService.addPointsToMap(this.points);
+        this.loading = false;
+        this.cdr.detectChanges();
       });
   }
 

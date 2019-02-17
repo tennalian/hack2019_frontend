@@ -20,7 +20,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: $red;
+    background: $grey;
 
     h2 {
       font-size: 14px;
@@ -35,6 +35,14 @@
     }
   }
 
+  .marker-card__header--postiive {
+    background: $green;
+  }
+
+  .marker-card__header--negative {
+    background: $red;
+  }
+
   .marker-card__body {
     padding: $screen-atom * 2  $screen-atom * 3;
     height: 100%;
@@ -45,6 +53,8 @@
       font-size: 14px;
       font-weight: bold;
       margin: 0 0 $screen-atom * 2;
+      display: flex;
+      align-items: center;
     }
 
     .marker-card__body--img {
@@ -63,7 +73,7 @@
       font-size: 12px;
 
       p {
-        color: $grey;
+        color: $secondary;
         margin: 0 0 $screen-atom * 2;
       }
     }

@@ -17,12 +17,12 @@ import { ItemCardComponent } from './item-card/item-card.component';
   exports: [
     MapViewComponent,
     GroupsListComponent,
-    ItemCardComponent
+    ItemCardComponent,
   ],
   declarations: [
     MapViewComponent,
     GroupsListComponent,
-    ItemCardComponent
+    ItemCardComponent,
   ],
   providers: [
     MapViewService

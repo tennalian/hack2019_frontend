@@ -1,5 +1,5 @@
 import { isEmpty, first } from 'lodash';
-import { Map, TileLayer, FitBoundsOptions, Control, MapOptions } from 'leaflet';
+import { Map, TileLayer, FitBoundsOptions, Control, MapOptions, control } from 'leaflet';
 import { Subject } from 'rxjs';
 
 import { MapCenter, MapZoom, MapBaseLayers } from '../../models/map-options.class';
@@ -82,17 +82,16 @@ export class MapModel {
     try {
       const map = await this.createMap(id);
       if (!isEmpty(map)) {
-        new Control.Zoom({
-          position: 'topright'
-        }).addTo(map);
         new Control.Scale({
           position: 'bottomright',
           maxWidth: 150,
           imperial: false
         }).addTo(map);
-
+        new Control.Zoom({
+          position: 'bottomright'
+        }).addTo(map);
         map.setMaxBounds([[180, 180], [-180, -180]]);
-        // map.attributionControl.setPrefix(PREFIX);
+        (map as any).attributionControl.setPrefix(PREFIX);
 
         this.mapInstance = map;
         return this.mapInstance;

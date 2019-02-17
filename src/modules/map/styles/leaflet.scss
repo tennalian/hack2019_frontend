@@ -8,5 +8,13 @@
   border-radius: 50%;
   width: 20px;
   height: 20px;
-  background: $green;
+  border: 2px solid $white;
+}
+
+.map-div-icon--postiive {
+  background: $green !important;
+}
+
+.map-div-icon--negative {
+  background: $red !important;
 }
